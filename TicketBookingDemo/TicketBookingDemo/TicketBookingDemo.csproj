@@ -146,8 +146,11 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+<<<<<<< HEAD
+=======
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
+>>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
     <Compile Include="Controllers\TravelAgentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -255,8 +258,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\TravelAgent\Index.cshtml" />
+=======
     <Content Include="Views\Admin\AddEmployee.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Login\LoginPage.cshtml" />
+=======
+>>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
+>>>>>>> 7ba6444f0e73944a5ca154d0b8f4559e7ba8cc31
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
