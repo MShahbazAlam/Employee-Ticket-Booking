@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
 using TicketBookingDemo.Controllers;
+=======
+>>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
 
 namespace TicketBookingDemo.Controllers
 {
     public class TravelAgentController : Controller
     {
+<<<<<<< HEAD
 
         private YourDbContext db = new YourDbContext(); // Replace YourDbContext with your actual DbContext
 
@@ -65,6 +69,12 @@ namespace TicketBookingDemo.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+=======
+        // GET: TravelAgent
+        public ActionResult Index()
+        {
+            return View();
+>>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
         }
     }
 }
