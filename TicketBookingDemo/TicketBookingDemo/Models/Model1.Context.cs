@@ -12,11 +12,13 @@ namespace TicketBookingDemo.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using TicketBookingDemo.Models;
     
-    public partial class Employee_Ticket_BookingEntities : DbContext
+    public partial class EmployeeTicketBookingEntities : DbContext
     {
-        public Employee_Ticket_BookingEntities()
-            : base("name=Employee_Ticket_BookingEntities")
+        
+        public EmployeeTicketBookingEntities()
+            : base("name=EmployeeTicketBookingEntities")
         {
         }
     
@@ -24,6 +26,17 @@ namespace TicketBookingDemo.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+        public DbSet<User> Users { get; set; }
+        public DbSet<TravelRequest> CurrentStatus { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Manager> Managers { get; set; }
+        public virtual DbSet<RequestStatu> RequestStatus { get; set; }
+        public virtual DbSet<TravelAgent> TravelAgents { get; set; }
+        public virtual DbSet<TravelRequestDetail> TravelRequestDetails { get; set; }
+        public virtual DbSet<AdminLogin> AdminLogins { get; set; }
+        public virtual DbSet<EmployeeLogin> EmployeeLogins { get; set; }
+        public virtual DbSet<ManagerLogin> ManagerLogins { get; set; }
+        public virtual DbSet<TravelAgentLogin> TravelAgentLogins { get; set; }
     }
 }

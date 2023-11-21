@@ -1,0 +1,2 @@
+D:\Employee Ticket Booking\TicketBookingDemo\TicketBookingDemo\obj\Debug\TicketBookingDemo.csproj.AssemblyReference.cache
+D:\Employee Ticket Booking\TicketBookingDemo\TicketBookingDemo\obj\Debug\TicketBookingDemo.csproj.CoreCompileInputs.cache

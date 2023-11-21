@@ -11,12 +11,9 @@ namespace TicketBookingDemo.Models
         public int UserId { get; set; }
 
         [Required]
-        [Display(Name = "First Name")]
-        public string FirstName { get; set; }
+        [Display(Name = "Name")]
+        public string Name { get; set; }
 
-        [Required]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
 
         [Required(ErrorMessage = "User Type is required")]
         public UserType UserType { get; set; } 

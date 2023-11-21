@@ -10,11 +10,11 @@ namespace TicketBookingDemo.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly UserClass _userService;
+        private readonly UserService _userService;
 
         public AdminController()
         {
-            _userService = new UserClass(); // Assuming UserService handles user-related operations
+            _userService = new UserService(); // Assuming UserService handles user-related operations
         }
 
         // Action to display the Add Employee view

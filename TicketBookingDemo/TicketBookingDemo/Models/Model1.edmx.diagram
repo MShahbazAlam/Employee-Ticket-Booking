@@ -4,7 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cb33f5341dce4beda00626640981624e" Name="Diagram1" />
+      <Diagram DiagramId="9321df4451b84f3bbefb2749fe4c19c6" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.Employee" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.Manager" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.RequestStatu" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.TravelAgent" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.TravelRequestDetail" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.AdminLogin" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.EmployeeLogin" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.ManagerLogin" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeTicketBookingModel.TravelAgentLogin" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__EmployeeL__EmpLo__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__Employees__RepMg__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__TravelReq__EmpId__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__ManagerLo__Manag__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__TravelReq__EmpMg__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__RequestSt__Agent__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__RequestSt__Reque__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeTicketBookingModel.FK__TravelAge__Agent__33D4B598" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

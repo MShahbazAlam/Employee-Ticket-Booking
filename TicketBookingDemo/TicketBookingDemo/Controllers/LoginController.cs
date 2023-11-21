@@ -4,24 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TicketBookingDemo.Models;
-
+using System.Data.Entity;
 
 namespace TicketBookingDemo.Controllers
 {
     public class LoginController : Controller
     {
-        
-        private Employee_Ticket_BookingEntities db = new Employee_Ticket_BookingEntities();
+        private EmployeeTicketBookingEntities db = new EmployeeTicketBookingEntities();
         // GET: Login
-        public ActionResult Index()
+        public ActionResult LoginPage()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(string username, string password)
+        public ActionResult LoginPage(string adminid, string adminpassword)
         {
-            var user = db.Login.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var user = db.AdminLogins.FirstOrDefault(u => u.AdminId == adminid && u.AdminPswd == adminpassword);
 
             if (user != null)
             {
