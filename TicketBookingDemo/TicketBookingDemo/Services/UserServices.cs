@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using TicketBookingDemo.Models;
+using System.Data.Entity;
 
 
 
@@ -133,6 +134,34 @@ namespace TicketBookingDemo.Services
             // Your logic to retrieve all employees from the data storage (e.g., database)
             return _users.FindAll(u => u.UserType == UserType.Agent);
             // Example: Your database retrieval logic here
+        }
+
+        /////////////       Manager
+
+        public List<Manager> GetAllManagers()
+        {
+            // Logic to retrieve all managers from the database
+            return dbContext.Managers.ToList();
+        }
+
+        public Manager GetManagerById(int managerId)
+        {
+            // Logic to retrieve a manager by ID from the database
+            return dbContext.Managers.FirstOrDefault(m => m.MgrId == managerId);
+        }
+
+        public void AddManager(Manager manager)
+        {
+            // Logic to add a new manager to the database
+            dbContext.Managers.Add(manager);
+            dbContext.SaveChanges();
+        }
+
+        public void UpdateManager(Manager manager)
+        {
+            // Logic to update an existing manager in the database
+            dbContext.Entry(manager).State = EntityState.Modified;
+            dbContext.SaveChanges();
         }
     }
 }

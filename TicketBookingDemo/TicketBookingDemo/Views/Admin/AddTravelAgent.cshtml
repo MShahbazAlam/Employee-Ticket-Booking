@@ -5,7 +5,7 @@
 
 <h2>AddTravelAgent</h2>
 
-@using (Html.BeginForm("Create", "TravelAgent", FormMethod.Post))
+@using (Html.BeginForm("AddTravelAgent", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -38,8 +38,8 @@
 
     <!-- Add more fields as needed for the Travel Agent details -->
 
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
-    </div>
+    
+        <input type="submit" value="Create" />
+    
 }
 

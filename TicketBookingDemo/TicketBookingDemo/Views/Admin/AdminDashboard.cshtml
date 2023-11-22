@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Assuming a shared layout is used
+}
+
+<h2>Welcome to Admin Dashboard</h2>
+
+<div>
+    <h3>Manage Travel Agents</h3>
+    <p>
+        <a href="@Url.Action("AddTravelAgent", "Admin")">Add Travel Agent</a>
+        <a href="@Url.Action("TravelAgentList", "Admin")">View Travel Agents</a>
+        <!-- Add more actions related to Travel Agents -->
+    </p>
+</div>
+
+<div>
+    <h3>Manage Employees</h3>
+    <p>
+        <a href="@Url.Action("AddEmployee", "Admin")">Add Employee</a>
+        <a href="@Url.Action("EmployeeList", "Admin")">View Employees</a>
+        <!-- Add more actions related to Employees -->
+    </p>
+</div>
+
+<div>
+    <h3>Manage Managers</h3>
+    <p>
+        <a href="@Url.Action("AddManager", "Admin")">Add Manager</a>
+        <a href="@Url.Action("ManagerList", "Admin")">View Managers</a>
+        <!-- Add more actions related to Managers -->
+    </p>
+</div>

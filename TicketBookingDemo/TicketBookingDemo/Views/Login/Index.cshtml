@@ -1,0 +1,84 @@
+﻿@model TicketBookingDemo.Models.LoginViewModel
+@using TicketBookingDemo.Helpers
+@*
+    @{
+        ViewBag.Title = "Login";
+    }
+
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username)
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserType)
+            @Html.DropDownListFor(model => model.UserType, TicketBookingDemo.Helpers.DropDownHelper.GetTypes(), "Select User Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    }
+
+    <div class="text-danger">
+        @ViewBag.ErrorMessage
+    </div>*@
+@{
+    ViewBag.Title = "Login";
+    Layout = null; // Use this if you don't want to use a layout page for this view
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <!-- Add your CSS stylesheets and other meta tags here -->
+</head>
+<body>
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken() <!-- Include this line for security -->
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div>
+            @Html.LabelFor(model => model.Username)
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Password)
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.UserType)
+            @Html.DropDownListFor(model => model.UserType, TicketBookingDemo.Helpers.DropDownHelper.GetTypes(), "Select User Type", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    }
+
+    <div class="text-danger">
+        @ViewBag.ErrorMessage
+    </div>
+
+    <!-- Add your scripts and other HTML content here -->
+</body>
+</html>

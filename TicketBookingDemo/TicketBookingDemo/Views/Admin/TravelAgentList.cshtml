@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TicketBookingDemo.Models.TravelAgent>
+@{
+    ViewBag.Title = "TravelAgentList";
+}
+
+<h2>Travel Agents List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Agent ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Agency ID</th>
+            <!-- Add other relevant headers -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var agent in Model)
+        {
+        <tr>
+            <td>@agent.AgentId</td>
+            <td>@agent.Name</td>
+            <td>@agent.Email</td>
+            <td>@agent.PhoneNumber</td>
+            <td>@agent.Agencyid</td>
+            <!-- Add other relevant columns -->
+        </tr>
+        }
+    </tbody>
+</table>
