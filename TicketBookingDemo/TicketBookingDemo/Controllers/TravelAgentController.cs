@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-<<<<<<< HEAD
+using System.Data.Entity;
+using TicketBookingDemo.Models;
+
 using TicketBookingDemo.Controllers;
-=======
->>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
 
 namespace TicketBookingDemo.Controllers
 {
     public class TravelAgentController : Controller
     {
-<<<<<<< HEAD
 
-        private YourDbContext db = new YourDbContext(); // Replace YourDbContext with your actual DbContext
+
+        private EmployeeTicketBookingEntities db = new EmployeeTicketBookingEntities(); // Replace YourDbContext with your actual DbContext
 
         // GET: TravelAgent
         public ActionResult Index()
         {
             // Get a list of pending travel requests to be confirmed by the travel agent
-            var pendingRequests = db.TravelRequests.Where(tr => tr.Status == "Pending").ToList();
+            var pendingRequests = db.RequestStatus.Where(tr => tr.TravelAgentStatus == "Pending").ToList();
             return View(pendingRequests);
         }
 
@@ -28,14 +28,14 @@ namespace TicketBookingDemo.Controllers
         [HttpPost]
         public ActionResult ConfirmRequest(int requestId)
         {
-            var request = db.TravelRequests.Find(requestId);
+            var request = db.RequestStatus.Find(requestId);
             if (request == null)
             {
                 return HttpNotFound();
             }
 
             // Perform logic to confirm the travel request
-            request.Status = "Ticket Confirmed";
+            request.TravelAgentStatus = "Ticket Confirmed";
 
             db.Entry(request).State = EntityState.Modified;
             db.SaveChanges();
@@ -47,14 +47,14 @@ namespace TicketBookingDemo.Controllers
         [HttpPost]
         public ActionResult RejectRequest(int requestId)
         {
-            var request = db.TravelRequests.Find(requestId);
+            var request = db.RequestStatus.Find(requestId);
             if (request == null)
             {
                 return HttpNotFound();
             }
 
             // Perform logic to reject the travel request
-            request.Status = "No Availability";
+            request.TravelAgentStatus = "No Availability";
 
             db.Entry(request).State = EntityState.Modified;
             db.SaveChanges();
@@ -69,12 +69,12 @@ namespace TicketBookingDemo.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-=======
-        // GET: TravelAgent
-        public ActionResult Index()
-        {
-            return View();
->>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
         }
+
+        //public ActionResult Index()
+        //{
+        //    return View();
+
+        //}
     }
 }
