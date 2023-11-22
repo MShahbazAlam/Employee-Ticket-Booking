@@ -10,11 +10,19 @@ namespace TicketBookingDemo.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly UserService _userService;
+        private readonly UserService userService;
+        private readonly UserTypeServices userTypeService;
+        private readonly TravelRequestService travelRequestService;
+        private readonly EmployeeTicketBookingEntities dbContext;
 
         public AdminController()
         {
-            _userService = new UserService(); // Assuming UserService handles user-related operations
+            dbContext = new EmployeeTicketBookingEntities(); // Initialize your DbContext
+
+            userService = new UserService(dbContext);
+            userTypeService = new UserTypeServices(dbContext);
+            travelRequestService = new TravelRequestService(dbContext);
+            // Assuming UserService handles user-related operations
         }
 
         // Action to display the Add Employee view
@@ -32,7 +40,7 @@ namespace TicketBookingDemo.Controllers
             {
                 try
                 {
-                    _userService.AddEmployee(user); // Call service method to add employee
+                    userService.AddEmployee(user); // Call service method to add employee
                     return RedirectToAction("EmployeeList"); // Redirect to employee list after successful addition
                 }
                 catch (Exception ex)
@@ -46,7 +54,7 @@ namespace TicketBookingDemo.Controllers
         // Action to display the Edit Employee view
         public ActionResult EditEmployee(int employeeId)
         {
-            var employee = _userService.GetEmployeeById(employeeId); // Fetch employee details by ID
+            var employee = userService.GetEmployeeById(employeeId); // Fetch employee details by ID
             if (employee == null)
             {
                 return HttpNotFound();
@@ -62,7 +70,7 @@ namespace TicketBookingDemo.Controllers
             {
                 try
                 {
-                    _userService.UpdateEmployee(user); // Call service method to update employee
+                    userService.UpdateEmployee(user); // Call service method to update employee
                     return RedirectToAction("EmployeeList"); // Redirect to employee list after successful update
                 }
                 catch (Exception ex)
@@ -76,7 +84,7 @@ namespace TicketBookingDemo.Controllers
         // Action to display the list of employees
         public ActionResult EmployeeList()
         {
-            var employees = _userService.GetAllEmployees(); // Fetch all employees
+            var employees = userService.GetAllEmployees(); // Fetch all employees
             return View(employees);
         }
 
@@ -95,7 +103,7 @@ namespace TicketBookingDemo.Controllers
             {
                 try
                 {
-                    _userService.AddTravelAgent(user); // Call service method to add travel agent
+                    userService.AddTravelAgent(user); // Call service method to add travel agent
                     return RedirectToAction("TravelAgentList"); // Redirect to travel agent list after successful addition
                 }
                 catch (Exception ex)
@@ -109,7 +117,7 @@ namespace TicketBookingDemo.Controllers
         // Action to display the Edit Travel Agent view
         public ActionResult EditTravelAgent(int agentId)
         {
-            var agent = _userService.GetTravelAgentById(agentId); // Fetch travel agent details by ID
+            var agent = userService.GetTravelAgentById(agentId); // Fetch travel agent details by ID
             if (agent == null)
             {
                 return HttpNotFound();
@@ -125,7 +133,7 @@ namespace TicketBookingDemo.Controllers
             {
                 try
                 {
-                    _userService.UpdateTravelAgent(user); // Call service method to update travel agent
+                    userService.UpdateTravelAgent(user); // Call service method to update travel agent
                     return RedirectToAction("TravelAgentList"); // Redirect to travel agent list after successful update
                 }
                 catch (Exception ex)
@@ -139,7 +147,7 @@ namespace TicketBookingDemo.Controllers
         // Action to display the list of travel agents
         public ActionResult TravelAgentList()
         {
-            var agents = _userService.GetAllTravelAgents(); // Fetch all travel agents
+            var agents = userService.GetAllTravelAgents(); // Fetch all travel agents
             return View(agents);
         }
     }

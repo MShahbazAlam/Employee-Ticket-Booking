@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-<<<<<<< HEAD
+using TicketBookingDemo.Models;
+using System.Data.Entity;
+
 using TicketBookingDemo.Controllers;
-=======
->>>>>>> 2ca45c796890a2eccfa84e9dced40c40ce14e3c1
+
 
 namespace TicketBookingDemo.Controllers
 {
     public class TravelAgentController : Controller
     {
-<<<<<<< HEAD
 
-        private YourDbContext db = new YourDbContext(); // Replace YourDbContext with your actual DbContext
+
+        private EmployeeTicketBookingEntities db = new EmployeeTicketBookingEntities(); // Replace YourDbContext with your actual DbContext
 
         // GET: TravelAgent
         public ActionResult Index()
         {
             // Get a list of pending travel requests to be confirmed by the travel agent
-            var pendingRequests = db.TravelRequests.Where(tr => tr.Status == "Pending").ToList();
+            var pendingRequests = db.TravelRequestDetails.Where(tr => tr.Status == "Pending").ToList();
             return View(pendingRequests);
         }
 
