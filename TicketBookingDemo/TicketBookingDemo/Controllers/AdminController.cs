@@ -150,5 +150,10 @@ namespace TicketBookingDemo.Controllers
             var agents = userService.GetAllTravelAgents(); // Fetch all travel agents
             return View(agents);
         }
+        public ActionResult Add()
+        {
+            // Your logic to prepare data for the view
+            return View();
+        }
     }
 }
