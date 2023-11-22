@@ -11,7 +11,6 @@ namespace TicketBookingDemo.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class TravelRequestDetail
     {
@@ -22,8 +21,6 @@ namespace TicketBookingDemo.Models
         }
     
         public int RequestId { get; set; }
-        [Required]
-        public string CurrentStatus { get; set; }
         public Nullable<int> EmpId { get; set; }
         public Nullable<int> EmpMgrId { get; set; }
         public string Destination { get; set; }
@@ -36,5 +33,6 @@ namespace TicketBookingDemo.Models
         public virtual Manager Manager { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestStatu> RequestStatus { get; set; }
+        public string CurrentStatus { get; internal set; }
     }
 }

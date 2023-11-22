@@ -11,7 +11,7 @@ namespace TicketBookingDemo.Services
     {
         private readonly EmployeeTicketBookingEntities dbContext; // Replace YourDbContext with your actual DbContext class
 
-        public UserTypeService(EmployeeTicketBookingEntities context)
+        public UserTypeServices(EmployeeTicketBookingEntities context)
         {
             dbContext = context;
         }
