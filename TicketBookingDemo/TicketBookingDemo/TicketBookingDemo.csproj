@@ -258,6 +258,7 @@
     <Content Include="Views\Admin\AddEmployee.cshtml" />
     <Content Include="Views\Login\LoginPage.cshtml" />
     <Content Include="Views\Admin\AddTravelAgent.cshtml" />
+    <Content Include="Views\Admin\AddManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
