@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
+using TicketBookingDemo.Models;
+using System.Data.Entity;
+
+using TicketBookingDemo.Controllers;
+
+=======
 using System.Data.Entity;
 using TicketBookingDemo.Models;
 
 using TicketBookingDemo.Controllers;
+>>>>>>> 6b695045a4aa5dade68a67adb57389ccfe37ab52
 
 namespace TicketBookingDemo.Controllers
 {
@@ -20,7 +28,11 @@ namespace TicketBookingDemo.Controllers
         public ActionResult Index()
         {
             // Get a list of pending travel requests to be confirmed by the travel agent
+<<<<<<< HEAD
+            var pendingRequests = db.TravelRequestDetails.Where(tr => tr.Status == "Pending").ToList();
+=======
             var pendingRequests = db.RequestStatus.Where(tr => tr.TravelAgentStatus == "Pending").ToList();
+>>>>>>> 6b695045a4aa5dade68a67adb57389ccfe37ab52
             return View(pendingRequests);
         }
 

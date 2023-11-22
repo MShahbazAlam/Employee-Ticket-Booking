@@ -13,6 +13,11 @@ namespace TicketBookingDemo.Services
         //    // Simulated data storage for users (replace this with database operations)
         private readonly List<User> _users = new List<User>();
 
+        public UserService(EmployeeTicketBookingEntities context)
+        {
+            dbContext = context;
+        }
+
         // Method to add an employee
         public void AddEmployee(User employee)
         {
@@ -55,10 +60,7 @@ namespace TicketBookingDemo.Services
         // Similarly, implement methods for travel agents, managers, etc.
         private readonly EmployeeTicketBookingEntities dbContext; // Replace YourDbContext with your DbContext class
 
-        //public UserService(EmployeeTicketBookingEntities context)
-        //{
-        //    dbContext = context;
-        //}
+        
 
         public User GetUserById(int userId)
         {
