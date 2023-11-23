@@ -61,18 +61,6 @@ warning 6002: The table/view 'EmployeeTicketBooking.dbo.ManagerLogin' does not h
     <Property Name="MaritalStatus" Type="nvarchar" MaxLength="15" Nullable="false" />
     <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
-  <EntityType Name="RequestStatus">
-    <Key>
-      <PropertyRef Name="BookingId" />
-    </Key>
-    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RequestId" Type="int" />
-    <Property Name="AgentId" Type="int" />
-    <Property Name="BookingDate" Type="date" Nullable="false" />
-    <Property Name="ManagerStatus" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CostInvolved" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TravelAgentStatus" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
   <EntityType Name="TravelAgent">
     <Key>
       <PropertyRef Name="AgentId" />
@@ -141,30 +129,6 @@ warning 6002: The table/view 'EmployeeTicketBooking.dbo.TravelAgentLogin' does n
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RequestSt__Agent__3B75D760">
-    <End Role="TravelAgent" Type="Self.TravelAgent" Multiplicity="0..1" />
-    <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TravelAgent">
-        <PropertyRef Name="AgentId" />
-      </Principal>
-      <Dependent Role="RequestStatus">
-        <PropertyRef Name="AgentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__RequestSt__Reque__3A81B327">
-    <End Role="TravelRequestDetails" Type="Self.TravelRequestDetails" Multiplicity="0..1" />
-    <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TravelRequestDetails">
-        <PropertyRef Name="RequestId" />
-      </Principal>
-      <Dependent Role="RequestStatus">
-        <PropertyRef Name="RequestId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__TravelAge__Agent__33D4B598">
     <End Role="TravelAgent" Type="Self.TravelAgent" Multiplicity="0..1" />
     <End Role="TravelAgentLogin" Type="Self.TravelAgentLogin" Multiplicity="*" />
@@ -204,7 +168,6 @@ warning 6002: The table/view 'EmployeeTicketBooking.dbo.TravelAgentLogin' does n
   <EntityContainer Name="EmployeeTicketBookingModelStoreContainer">
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TravelAgent" EntityType="Self.TravelAgent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TravelRequestDetails" EntityType="Self.TravelRequestDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" store:Type="Tables" store:Schema="dbo">
@@ -242,14 +205,6 @@ warning 6002: The table/view 'EmployeeTicketBooking.dbo.TravelAgentLogin' does n
     <AssociationSet Name="FK__ManagerLo__Manag__286302EC" Association="Self.FK__ManagerLo__Manag__286302EC">
       <End Role="Managers" EntitySet="Managers" />
       <End Role="ManagerLogin" EntitySet="ManagerLogin" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RequestSt__Agent__3B75D760" Association="Self.FK__RequestSt__Agent__3B75D760">
-      <End Role="TravelAgent" EntitySet="TravelAgent" />
-      <End Role="RequestStatus" EntitySet="RequestStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RequestSt__Reque__3A81B327" Association="Self.FK__RequestSt__Reque__3A81B327">
-      <End Role="TravelRequestDetails" EntitySet="TravelRequestDetails" />
-      <End Role="RequestStatus" EntitySet="RequestStatus" />
     </AssociationSet>
     <AssociationSet Name="FK__TravelAge__Agent__33D4B598" Association="Self.FK__TravelAge__Agent__33D4B598">
       <End Role="TravelAgent" EntitySet="TravelAgent" />

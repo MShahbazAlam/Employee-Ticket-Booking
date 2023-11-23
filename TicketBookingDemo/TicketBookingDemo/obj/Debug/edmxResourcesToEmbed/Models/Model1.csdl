@@ -40,20 +40,6 @@
     <NavigationProperty Name="ManagerLogins" Relationship="Self.FK__ManagerLo__Manag__286302EC" FromRole="Managers" ToRole="ManagerLogin" />
     <NavigationProperty Name="TravelRequestDetails" Relationship="Self.FK__TravelReq__EmpMg__37A5467C" FromRole="Managers" ToRole="TravelRequestDetails" />
   </EntityType>
-  <EntityType Name="RequestStatu">
-    <Key>
-      <PropertyRef Name="BookingId" />
-    </Key>
-    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RequestId" Type="Int32" />
-    <Property Name="AgentId" Type="Int32" />
-    <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="ManagerStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="CostInvolved" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TravelAgentStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="TravelAgent" Relationship="Self.FK__RequestSt__Agent__3B75D760" FromRole="RequestStatus" ToRole="TravelAgent" />
-    <NavigationProperty Name="TravelRequestDetail" Relationship="Self.FK__RequestSt__Reque__3A81B327" FromRole="RequestStatus" ToRole="TravelRequestDetails" />
-  </EntityType>
   <EntityType Name="TravelAgent">
     <Key>
       <PropertyRef Name="AgentId" />
@@ -63,7 +49,6 @@
     <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Agencyid" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="RequestStatus" Relationship="Self.FK__RequestSt__Agent__3B75D760" FromRole="TravelAgent" ToRole="RequestStatus" />
     <NavigationProperty Name="TravelAgentLogins" Relationship="Self.FK__TravelAge__Agent__33D4B598" FromRole="TravelAgent" ToRole="TravelAgentLogin" />
   </EntityType>
   <EntityType Name="TravelRequestDetail">
@@ -80,7 +65,6 @@
     <Property Name="TravelMode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Employee" Relationship="Self.FK__TravelReq__EmpId__36B12243" FromRole="TravelRequestDetails" ToRole="Employees" />
     <NavigationProperty Name="Manager" Relationship="Self.FK__TravelReq__EmpMg__37A5467C" FromRole="TravelRequestDetails" ToRole="Managers" />
-    <NavigationProperty Name="RequestStatus" Relationship="Self.FK__RequestSt__Reque__3A81B327" FromRole="TravelRequestDetails" ToRole="RequestStatus" />
   </EntityType>
   <EntityType Name="AdminLogin">
     <Key>
@@ -173,30 +157,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RequestSt__Agent__3B75D760">
-    <End Role="TravelAgent" Type="Self.TravelAgent" Multiplicity="0..1" />
-    <End Role="RequestStatus" Type="Self.RequestStatu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TravelAgent">
-        <PropertyRef Name="AgentId" />
-      </Principal>
-      <Dependent Role="RequestStatus">
-        <PropertyRef Name="AgentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__RequestSt__Reque__3A81B327">
-    <End Role="TravelRequestDetails" Type="Self.TravelRequestDetail" Multiplicity="0..1" />
-    <End Role="RequestStatus" Type="Self.RequestStatu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TravelRequestDetails">
-        <PropertyRef Name="RequestId" />
-      </Principal>
-      <Dependent Role="RequestStatus">
-        <PropertyRef Name="RequestId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__TravelAge__Agent__33D4B598">
     <End Role="TravelAgent" Type="Self.TravelAgent" Multiplicity="0..1" />
     <End Role="TravelAgentLogin" Type="Self.TravelAgentLogin" Multiplicity="*" />
@@ -212,7 +172,6 @@
   <EntityContainer Name="EmployeeTicketBookingEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="Managers" EntityType="Self.Manager" />
-    <EntitySet Name="RequestStatus" EntityType="Self.RequestStatu" />
     <EntitySet Name="TravelAgents" EntityType="Self.TravelAgent" />
     <EntitySet Name="TravelRequestDetails" EntityType="Self.TravelRequestDetail" />
     <EntitySet Name="AdminLogins" EntityType="Self.AdminLogin" />
@@ -238,14 +197,6 @@
     <AssociationSet Name="FK__TravelReq__EmpMg__37A5467C" Association="Self.FK__TravelReq__EmpMg__37A5467C">
       <End Role="Managers" EntitySet="Managers" />
       <End Role="TravelRequestDetails" EntitySet="TravelRequestDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RequestSt__Agent__3B75D760" Association="Self.FK__RequestSt__Agent__3B75D760">
-      <End Role="TravelAgent" EntitySet="TravelAgents" />
-      <End Role="RequestStatus" EntitySet="RequestStatus" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RequestSt__Reque__3A81B327" Association="Self.FK__RequestSt__Reque__3A81B327">
-      <End Role="TravelRequestDetails" EntitySet="TravelRequestDetails" />
-      <End Role="RequestStatus" EntitySet="RequestStatus" />
     </AssociationSet>
     <AssociationSet Name="FK__TravelAge__Agent__33D4B598" Association="Self.FK__TravelAge__Agent__33D4B598">
       <End Role="TravelAgent" EntitySet="TravelAgents" />

@@ -24,19 +24,20 @@ namespace TicketBookingDemo.Models
         {
             throw new UnintentionalCodeFirstException();
         }
+<<<<<<< HEAD
+    
+        public DbSet<User> Users { get; set; }
+=======
     public DbSet<User> Users { get; set; }
-        public DbSet<UserType> UserTypes{ get; set; }
-       // public DbSet<User> Users { get; set; }
+>>>>>>> origin/master
+        public DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
-        public virtual DbSet<RequestStatu> RequestStatus { get; set; }
         public virtual DbSet<TravelAgent> TravelAgents { get; set; }
         public virtual DbSet<TravelRequestDetail> TravelRequestDetails { get; set; }
         public virtual DbSet<AdminLogin> AdminLogins { get; set; }
         public virtual DbSet<EmployeeLogin> EmployeeLogins { get; set; }
         public virtual DbSet<ManagerLogin> ManagerLogins { get; set; }
         public virtual DbSet<TravelAgentLogin> TravelAgentLogins { get; set; }
-        //public object Users { get; internal set; }
-        //public object UserTypes { get; internal set; }
     }
 }

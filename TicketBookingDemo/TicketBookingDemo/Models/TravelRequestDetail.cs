@@ -11,15 +11,10 @@ namespace TicketBookingDemo.Models
 {
     using System;
     using System.Collections.Generic;
+
     
-    public partial class TravelRequestDetail
+    public partial class TravelRequestDetail 
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TravelRequestDetail()
-        {
-            this.RequestStatus = new HashSet<RequestStatu>();
-        }
-    
         public int RequestId { get; set; }
         public Nullable<int> EmpId { get; set; }
         public Nullable<int> EmpMgrId { get; set; }
@@ -31,8 +26,6 @@ namespace TicketBookingDemo.Models
     
         public virtual Employee Employee { get; set; }
         public virtual Manager Manager { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RequestStatu> RequestStatus { get; set; }
         public string CurrentStatus { get; internal set; }
     }
 }

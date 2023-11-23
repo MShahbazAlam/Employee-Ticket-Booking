@@ -1,7 +1,102 @@
-﻿
+﻿@model TicketBookingDemo.Models.Employee
 @{
     ViewBag.Title = "AddEmployee";
 }
 
 <h2>AddEmployee</h2>
 
+<form id="employeeForm" asp-action="Create" method="post" onsubmit="return validateForm()">
+    <div>
+        <label asp-for="Empid">EmployeeID:</label>
+        <input asp-for="Empid" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" />
+    </div>
+    <br/>
+
+    <div>
+        <label asp-for="DOB">Date of Birth:</label>
+        <input asp-for="DOB" type="date" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="Gender">Gender:</label>
+        <input asp-for="Gender" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" type="email" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="PhoneNumber">Phone Number:</label>
+        <input asp-for="PhoneNumber" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="DOJ">Date of Joining:</label>
+        <input asp-for="DOJ" type="date" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="DeptName">Department Name:</label>
+        <input asp-for="DeptName" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="Designation">Designation:</label>
+        <input asp-for="Designation" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="RepMgrId">Reporting Manager Id:</label>
+        <input asp-for="RepMgrId" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="MaritalStatus">Marital Status:</label>
+        <input asp-for="MaritalStatus" />
+    </div>
+    <br/>
+
+
+    <div>
+        <label asp-for="Address">Address:</label>
+        <input asp-for="Address" />
+    </div>
+    <br/>
+
+
+    <button type="submit">Add Employee</button>
+</form>
+
+<script>
+    function validateForm() {
+        // You can add JavaScript validation logic here if needed
+        // For example, check if required fields are filled, validate email format, etc.
+        // Return true if the form is valid, false otherwise
+        return true;
+    }
+</script>
