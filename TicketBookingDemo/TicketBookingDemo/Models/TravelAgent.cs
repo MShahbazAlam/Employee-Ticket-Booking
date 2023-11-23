@@ -17,7 +17,6 @@ namespace TicketBookingDemo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TravelAgent()
         {
-            this.RequestStatus = new HashSet<RequestStatu>();
             this.TravelAgentLogins = new HashSet<TravelAgentLogin>();
         }
     
@@ -27,8 +26,6 @@ namespace TicketBookingDemo.Models
         public string PhoneNumber { get; set; }
         public int Agencyid { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RequestStatu> RequestStatus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TravelAgentLogin> TravelAgentLogins { get; set; }
     }

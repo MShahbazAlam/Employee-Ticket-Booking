@@ -37,19 +37,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RequestStatus">
-      <EntityTypeMapping TypeName="EmployeeTicketBookingModel.RequestStatu">
-        <MappingFragment StoreEntitySet="RequestStatus">
-          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
-          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
-          <ScalarProperty Name="AgentId" ColumnName="AgentId" />
-          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
-          <ScalarProperty Name="ManagerStatus" ColumnName="ManagerStatus" />
-          <ScalarProperty Name="CostInvolved" ColumnName="CostInvolved" />
-          <ScalarProperty Name="TravelAgentStatus" ColumnName="TravelAgentStatus" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TravelAgents">
       <EntityTypeMapping TypeName="EmployeeTicketBookingModel.TravelAgent">
         <MappingFragment StoreEntitySet="TravelAgent">
