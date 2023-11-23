@@ -201,6 +201,7 @@
     <Compile Include="Models\UserType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\EmployeeLoginService.cs" />
     <Compile Include="Services\TravelRequestService.cs" />
     <Compile Include="Services\UserServices.cs" />
     <Compile Include="Services\UserTypeServices.cs" />
@@ -264,10 +265,11 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Admin\AdminDashboard.cshtml" />
     <Content Include="Views\Admin\TravelAgentList.cshtml" />
+    <Content Include="Views\Admin\EditTravelAgent.cshtml" />
+    <Content Include="Views\Employee\RequestTravel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Employee\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\Manager\" />
     <Folder Include="Views\TravelAgent\" />

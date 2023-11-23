@@ -83,12 +83,13 @@ namespace TicketBookingDemo.Controllers
         //.....................................................................................
         private readonly AuthenticationService authenticationService;
         private readonly EmployeeTicketBookingEntities dbContext;
-
+        private readonly EmployeeLoginService employeeLoginService;
         public LoginController()
         {
             // Initialize your authentication service
             dbContext = new EmployeeTicketBookingEntities(); // Initialize your DbContext
             authenticationService = new AuthenticationService(dbContext);
+
         }
 
         // GET: Login
@@ -145,6 +146,30 @@ namespace TicketBookingDemo.Controllers
             }
             ViewBag.ErrorMessage = "Invalid credentials or user type. Please try again.";
             return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult EmployeeLogin()
+        {
+            return View("EmployeeLoginView");
+        }
+        [HttpPost]
+        public ActionResult EmployeeLogin(int empId, string username, string password)
+        {
+            if (employeeLoginService.IsValidEmployee(empId, username, password))
+            {
+                // Employee authentication successful
+                // Redirect to employee dashboard or another appropriate action
+                return RedirectToAction("EmployeeDashboard", "Employee");
+            }
+            else
+            {
+                // Employee authentication failed
+                // Handle invalid login attempt (e.g., show error message)
+                ViewBag.ErrorMessage = "Invalid employee ID, username, or password";
+                return View("EmployeeLoginView");
+            }
         }
     }
 }

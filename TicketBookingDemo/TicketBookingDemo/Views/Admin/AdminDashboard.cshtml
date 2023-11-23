@@ -10,9 +10,19 @@
     <p>
         <a href="@Url.Action("AddTravelAgent", "Admin")">Add Travel Agent</a>
         <a href="@Url.Action("TravelAgentList", "Admin")">View Travel Agents</a>
+      @*  <a href="@Url.Action("EditTravelAgent", "Admin", new { agentId = 10232 /* Pass agent ID here */ })">Edit Travel Agent</a>*@
+        @*<a href="@Url.Action("EditTravelAgent", "Admin")">Edit Travel Agents</a>*@
         <!-- Add more actions related to Travel Agents -->
     </p>
 </div>
+<div>
+    <h3>Edit Travel Agent</h3>
+    <p>
+        <a href="@Url.Action("EditTravelAgent", "Admin", new { agentId =103100})">Edit Travel Agent</a>
+      
+    </p>
+</div>
+
 
 <div>
     <h3>Manage Employees</h3>

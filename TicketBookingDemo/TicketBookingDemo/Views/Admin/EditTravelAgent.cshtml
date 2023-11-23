@@ -1,0 +1,31 @@
+﻿@model TicketBookingDemo.Models.TravelAgent
+@{
+    ViewBag.Title = "EditTravelAgent";
+}
+<h2>Edit Travel Agent</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.AgentId)
+    <div>
+        <label>Name:</label>
+        @Html.TextBoxFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div>
+        <label>Email:</label>
+        @Html.TextBoxFor(model => model.Email)
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    <div>
+        <label>Phone Number:</label>
+        @Html.TextBoxFor(model => model.PhoneNumber)
+        @Html.ValidationMessageFor(model => model.PhoneNumber)
+    </div>
+    <div>
+        <label>Agency ID:</label>
+        @Html.TextBoxFor(model => model.Agencyid)
+        @Html.ValidationMessageFor(model => model.Agencyid)
+    </div>
+    <input type="submit" value="Update" />
+}

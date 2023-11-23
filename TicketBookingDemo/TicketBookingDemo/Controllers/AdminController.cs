@@ -140,35 +140,45 @@ namespace TicketBookingDemo.Controllers
         // Action to display the Edit Travel Agent view
         public ActionResult EditTravelAgent(int agentId)
         {
-            var agent = userService.GetTravelAgentById(agentId); // Fetch travel agent details by ID
-            if (agent == null)
+            using (var dbContext = new EmployeeTicketBookingEntities())
             {
-                return HttpNotFound();
+                var agent = dbContext.TravelAgents.FirstOrDefault(a => a.AgentId == agentId);
+                if (agent == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(agent);
             }
-            return View(agent);
         }
 
         // POST action to handle editing a travel agent
         [HttpPost]
-        public ActionResult EditTravelAgent(User user)
+        public ActionResult EditTravelAgent(TravelAgent updatedAgent)
         {
             if (ModelState.IsValid)
             {
-                try
+                using (var dbContext = new EmployeeTicketBookingEntities())
                 {
-                    userService.UpdateTravelAgent(user); // Call service method to update travel agent
-                    return RedirectToAction("TravelAgentList"); // Redirect to travel agent list after successful update
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", "Error editing travel agent: " + ex.Message);
-                }
-            }
-            return View(user);
-        }
+                    var existingAgent = dbContext.TravelAgents.FirstOrDefault(a => a.AgentId == updatedAgent.AgentId);
+                    if (existingAgent != null)
+                    {
+                        // Update existing agent's properties
+                        existingAgent.Name = updatedAgent.Name;
+                        existingAgent.Email = updatedAgent.Email;
+                        existingAgent.PhoneNumber = updatedAgent.PhoneNumber;
+                        existingAgent.Agencyid = updatedAgent.Agencyid;
 
-        // Action to display the list of travel agents
-        public ActionResult TravelAgentList()
+                        dbContext.SaveChanges();
+                    }
+                }
+                return RedirectToAction("TravelAgentList"); // Redirect to the list of travel agents
+            }
+            return View(updatedAgent);
+        }
+    
+
+    // Action to display the list of travel agents
+    public ActionResult TravelAgentList()
         {
             //var agents = userService.GetAllTravelAgents(); // Fetch all travel agents
             //return View(agents);

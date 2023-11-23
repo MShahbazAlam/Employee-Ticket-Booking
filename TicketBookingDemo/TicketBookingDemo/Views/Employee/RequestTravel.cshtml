@@ -1,0 +1,56 @@
+﻿@model TicketBookingDemo.Models.TravelRequestDetail
+@{
+    ViewBag.Title = "RequestTravel";
+}
+
+<h2>Request Travel</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.Destination)
+        @Html.TextBoxFor(model => model.Destination)
+        @Html.ValidationMessageFor(model => model.Destination)
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Purpose)
+        @Html.TextBoxFor(model => model.Purpose, new { @class = "form-control", placeholder = "Enter Purpose" })
+        @Html.ValidationMessageFor(model => model.Purpose, "", new { @class = "text-danger" })
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.DepartureDate)
+        @Html.TextBoxFor(model => model.DepartureDate, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(model => model.DepartureDate, "", new { @class = "text-danger" })
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.ReturnDate)
+        @Html.TextBoxFor(model => model.ReturnDate, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.TravelMode)
+        @Html.DropDownListFor(model => model.TravelMode, GetTravelModes(), "Select Travel Mode", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.TravelMode, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Add other necessary fields for travel request details -->
+    <input type="submit" value="Submit" />
+    @functions {
+        public List<SelectListItem> GetTravelModes()
+        {
+            return new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Airplane", Value = "Airplane" },
+                new SelectListItem { Text = "Train", Value = "Train" },
+                new SelectListItem { Text = "Car", Value = "Car" },
+                new SelectListItem { Text= "Ship", Value ="Ship"},
+                // Add other travel modes as needed
+            };
+        }
+    }
+}
+
+
