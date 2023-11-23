@@ -11,8 +11,9 @@ namespace TicketBookingDemo.Models
 {
     using System;
     using System.Collections.Generic;
+
     
-    public partial class TravelRequestDetail
+    public partial class TravelRequestDetail 
     {
         public int RequestId { get; set; }
         public Nullable<int> EmpId { get; set; }
